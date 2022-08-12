@@ -1,16 +1,11 @@
 # multithreading_test
 
-A new Flutter project.
+It is always a good approach to do heavy work in the background while users enjoy the main thread. Using Isolates  you can improve your flutter app performance and user experience.
 
-## Getting Started
+Isolate is basically Thread/Multithreading in dart.
 
-This project is a starting point for a Flutter application.
+Two Ways to Implement Threading
+i.. Use of Compute Function
+ii. Use of Isolate.spwan() method.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Both ways are implemented in app , while compute method is currently commented. 
