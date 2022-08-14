@@ -11,8 +11,8 @@ class QuotesCubit extends Cubit<dynamic>{
     });
   }
 
-  void deleteQuotes(){
-    emit(null);
-  }
+  // void deleteQuotes(){
+  //   emit(null);
+  // }
 
 }
