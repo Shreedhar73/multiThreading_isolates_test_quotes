@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:multithreading_test/quotesModel.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:multithreading_test/cubits/quotes_cubit.dart';
+// import 'package:multithreading_test/quotesModel.dart';
+// import 'package:multithreading_test/quotesModel.dart';
 
-import 'apicall.dart';
+// import 'apicall.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
@@ -11,19 +14,28 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final apiCall = RemoteServices();
+   final QuotesCubit quotesCubit = QuotesCubit();
+  // final apiCall = RemoteServices();
   @override
   void initState() {
-    apiCall.fetchQuotes(
+    super.initState();
+    quotesCubit.getQuotes();
+  }
 
-    );
+  @override
+  void dispose(){
+    quotesCubit.close();
+    super.dispose();
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: FutureBuilder(
-        future: apiCall.fetchQuotes(),
+      appBar: AppBar(
+        centerTitle: true,
+       
+      ),
+      body: StreamBuilder(
+        stream: quotesCubit.stream,
         builder: (context, snapshot){
           if(snapshot.hasData){
            List quotes = snapshot.data as List;
@@ -35,6 +47,7 @@ class _HomePageState extends State<HomePage> {
                     // print(quotes.length);
                     return InkWell(
                       onTap: () {
+                        // quotesCubit.deleteQuotes();
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(

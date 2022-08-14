@@ -2,8 +2,8 @@
 
 import 'dart:isolate';
 
-import 'package:flutter/foundation.dart';
-import 'package:multithreading_test/quotesModel.dart';
+// import 'package:flutter/foundation.dart';
+import 'package:multithreading_test/quotes_model.dart';
 import 'package:http/http.dart' as http;
 
 class RemoteServices {
